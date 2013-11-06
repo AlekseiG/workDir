@@ -25,8 +25,8 @@ import xmlStorage.Storage;
 
 public class Album extends BasicFile {
 	long userId;
-	ArrayList<Integer> fotos; //in albom
-	ArrayList<Integer> childAlboms; //including albom
+	ArrayList<Integer> photos; //in album
+	ArrayList<Integer> childAlboms; //including album
 	long albomId;
 	long parentId;
 	String description;
@@ -41,13 +41,13 @@ public class Album extends BasicFile {
 		long val = Long.parseLong(userId);	
 		this.userId = val;	
 	}
-	public ArrayList<Integer> getFotos() {
-		return fotos;
+	public ArrayList<Integer> getPhotos() {
+		return photos;
 	}
-	public void setFotos(String fotos) {
+	public void setPhotos(String photos) {
 		
 		
-		//this.fotos = fotos;
+		//this.photos = photos;
 	}
 	public ArrayList<Integer> getChildAlboms() {
 		return childAlboms;

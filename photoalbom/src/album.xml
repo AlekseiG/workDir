@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables>
+	<Albums>
+		<Album>
+			<userId>0</userId>
+			<albomId>1</albomId>
+			<name>pip</name>
+			<parentId>0</parentId>
+			<description>first of all</description>
+			<photosId>
+				<photoId>11</photoId>
+				<photoId>12</photoId>
+				<photoId>13</photoId>
+			</photosId>
+		</Album>
+		<Album>
+			<userId>0</userId>
+			<albomId>2</albomId>
+			<name>lol</name>
+			<parentId>0</parentId>
+			<photosId>
+				<photoId>21</photoId>
+				<photoId>22</photoId>
+				<photoId>23</photoId>
+			</photosId>
+			<description>second album</description>
+		</Album>
+	</Albums>
+</Tables>

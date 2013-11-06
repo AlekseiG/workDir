@@ -13,7 +13,7 @@ public class myMain {
 		SystemImpl mySystem = new SystemImpl();
 		Storage myStorage = new Storage();
 		Album myAlbum = new Album();
-		myStorage.XmlRW("C:\\Users\\Aleksei\\Documents\\workspace\\fotoalbom\\src\\albom.xml");
+		myStorage.XmlRW("C:\\Users\\Aleksei\\Documents\\workspace\\fotoalbom\\src\\album.xml");
 		java.util.List<?>  myList  = new ArrayList<Album>();
 		//myList  = 	myStorage.find("lol", "Album");
 		myList  = 	myStorage.ls( "Album");

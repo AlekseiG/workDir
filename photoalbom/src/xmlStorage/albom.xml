@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables>
+<Albums>
+	<Album>
+		<userId>0</userId>
+		<albomId>1</albomId>
+		<setName>pip</setName>
+		<parentId>null</parentId>
+		<description>first of all</description>
+	</Album>
+	<Album>
+		<userId>0</userId>
+		<albomId>2</albomId>
+		<setName>lol</setName>
+		<parentId>null</parentId>
+		<description>second album</description>
+	</Album>
+	
+</Albums>

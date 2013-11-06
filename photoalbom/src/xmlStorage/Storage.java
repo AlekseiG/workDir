@@ -26,14 +26,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import modul.Album;
-import modul.Foto;
+import modul.Photo;
 import modul.User;
 
 
 
 public class Storage {
 	
-	static Map<Long, Foto> photos;	
+	static Map<Long, Photo> photos;	
 	static Map<Long, Album> albums;
 	static Map<Long, User> users;
 	
@@ -44,15 +44,15 @@ public class Storage {
 
 	public List<?> ls(String cl){
 		if(cl.equals("Photo")){
-			List<Foto> l = new ArrayList<Foto>();		
+			List<Photo> l = new ArrayList<Photo>();		
 			try{			
-				for(Map.Entry<Long, Foto> i:  photos.entrySet()){
+				for(Map.Entry<Long, Photo> i:  photos.entrySet()){
 						l.add(i.getValue()); 
 				}
 				return l;
 			}catch(Exception e){
 				System.err.println("illegal pattern");
-				Foto emp = new Foto();			
+				Photo emp = new Photo();			
 				emp.setName("NO ONE");
 				l.add(emp);
 				return l;
@@ -92,10 +92,10 @@ public class Storage {
 	
 	public List<?> find(String query, String cl){			
 		if(cl.equals("Photo")){
-			List<Foto> l = new ArrayList<Foto>();		
+			List<Photo> l = new ArrayList<Photo>();		
 			try{
 				Pattern p = Pattern.compile(".*" + query + ".*");		
-				for(Map.Entry<Long, Foto> i:  photos.entrySet()){
+				for(Map.Entry<Long, Photo> i:  photos.entrySet()){
 					if (checkAccordance(i.getValue().getName(), p)){
 						l.add(i.getValue()); 
 					}
@@ -103,7 +103,7 @@ public class Storage {
 				return l;
 			}catch(Exception e){
 				System.err.println("illegal pattern");
-				Foto emp = new Foto();			
+				Photo emp = new Photo();			
 				emp.setName("NO ONE");
 				l.add(emp);
 				return l;
@@ -297,15 +297,16 @@ public class Storage {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					e = new Album();
 					Element eElement = (Element) nNode;		     			      		
-					e.setUserId(getTagValue("userId", eElement));		      
+					/*e.setUserId(getTagValue("userId", eElement));		      
 					e.setAlbomId(getTagValue("albomId", eElement));	
-					e.setName(getTagValue("Name", eElement));	
+					e.setName(getTagValue("name", eElement));	
 					e.setParentId(getTagValue("parentId", eElement));	
-					e.setDescription(getTagValue("description", eElement));
-					//e.setFotos("Fotos", eElement);
+					e.setDescription(getTagValue("description", eElement));*/
+					e.setPhotos(getTagValue("photosId", eElement));
 					//e.setChildAlboms;(getTagValue("description", eElement));		
 					alb.put(e.getAlbomId(),e);
 				}				
+				
 			} 
 	    }
 		return alb;
@@ -315,8 +316,13 @@ public class Storage {
 			NodeList nList = eElement.getChildNodes(); 		
 			for (int i = 0; i < nList.getLength(); i++){
 				if (nList.item(i).getNodeName().equals(sTag)){
+					if (sTag.equals("photosId")) {
+						List tmp = new ArrayList<Long>();
+						tmp.add(1);
+						}
 					return nList.item(i).getChildNodes().item(0).getNodeValue(); 
 				}	
+
 			}	
 			return null; 
 		}catch (Exception e){
