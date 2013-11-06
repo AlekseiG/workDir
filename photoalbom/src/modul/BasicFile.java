@@ -3,8 +3,12 @@ package modul;
 
 import java.io.*;
 
+
+
+
 public class BasicFile {
 	String source;
+	String path;
 	public String getSource() {
 		return source;
 	}
@@ -31,7 +35,7 @@ public class BasicFile {
 	            String s;
 	            while ((s = in.readLine()) != null) {
 	                sb.append(s);
-	                sb.append("\n");
+	                sb.append(System.getProperty("line.separator"));
 	            }
 	        } finally {
 	            //Также не забываем закрыть файл
@@ -72,6 +76,10 @@ public class BasicFile {
 		
 	}
 
-
+	public void removeTo (String newPath) {
+		File file = new File(path);
+		file.renameTo(new File(newPath));
+		
+	}
 	
 }
